@@ -1,0 +1,73 @@
+"Begin section for pathogen setup
+filetype off
+
+call pathogen#infect()
+execute pathogen#infect()
+
+filetype plugin indent on
+syntax on
+"End section for pathogen ----
+
+"some advice for organizing this file:
+"  use sections:
+"  - General Sytemwide
+"  - Key-Mappings
+"  - Script-specific settings -- ordered by script
+"  - Playground for testing out new additions
+"
+
+"fix the tabbing
+set ts=4 sts=4 sw=4 expandtab
+
+"use spell checking with english default
+nmap <silent> <leader>s :set spell<CR>
+nmap <silent> <leader>S :set spell!<CR>
+
+" Smart indenting
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+"set paste
+nmap <silent> <leader>p :set paste<CR>
+nmap <silent> <leader>P :set nopaste<CR>
+
+"turn line numbers on and off
+nmap <silent> <leader>n :set nu<CR>
+nmap <silent> <leader>N :set nu!<CR>
+
+set ruler
+
+"set splitting
+set splitbelow
+set splitright
+
+"use mouse to move the vim split windows; but I'll have to use shift-select to
+"be able to copy from terminal
+set mouse=a
+
+" More syntax highlighting.
+let python_highlight_all = 1
+
+" Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
+set omnifunc=pythoncomplete#Complete
+inoremap <Nul> <C-x><C-o>
+
+"make . command work with visual mode
+:xnoremap . :norm.<CR>
+
+set nocompatible
+
+"let @d=':r !date '+%a %d %B %Y''
+map <leader>d :r !date '+\%a \%d \%B \%Y' <CR>
+
+"This was recommended by Chad at NCLUG, but .. is this better than smartindent
+"set autoindent 
+"set expandtab 
+
+"set so 07 increments like it's not in hex
+"set nrformats=alpha
+
+"expand all sections when opening python code
+autocmd Syntax python normal zR
+
+"wrap code lines..so you can see what's going on.
+autocmd FileType python set nonumber wrap
