@@ -3,9 +3,9 @@
  === to set up a new environment on a machine === 
  cd ~
  git clone http://github.com/imbilltucker/dotfiles.git ~/dotfiles
- ln -s ~/dotfiles/.vim ~/.vim
- ln -s ~/dotfiles/.vim/vimrc ~/.vimrc
- cd ~/.vim
+ ln -s ~/dotfiles/vim ~/.vim
+ ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ cd ~/.vim/bundle
  git submodule init
  git submodule update
 
