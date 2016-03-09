@@ -45,11 +45,12 @@ set splitright
 set mouse=a
 
 " More syntax highlighting.
-let python_highlight_all = 1
+" but use only with .py files
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
-set omnifunc=pythoncomplete#Complete
-inoremap <Nul> <C-x><C-o>
+"set omnifunc=pythoncomplete#Complete
+"inoremap <Nul> <C-x><C-o>
 
 "make . command work with visual mode
 :xnoremap . :norm.<CR>
@@ -58,6 +59,12 @@ set nocompatible
 
 "let @d=':r !date '+%a %d %B %Y''
 map <leader>d :r !date '+\%a \%d \%B \%Y' <CR>
+
+"db2commandline-ify a sql statement
+" use ctrl-v<escape> to insert this special escape character
+let @d='0idb2A;j'
+
+map <leader>f 0idb2<ESC>A;<ESC>j
 
 "This was recommended by Chad at NCLUG, but .. is this better than smartindent
 "set autoindent 
@@ -71,3 +78,60 @@ autocmd Syntax python normal zR
 
 "wrap code lines..so you can see what's going on.
 autocmd FileType python set nonumber wrap
+
+
+"turn on only pylint via syntastic
+"" I turned this off so I don't get so many msgs and conflicts with pymode
+"let g:syntastic_python_checkers=['pylint']
+
+
+"let g:pymode_lint_ignore = "E501,E2,W"
+"remove warnings on line length
+let g:pymode_lint_ignore = "E501"
+
+" stop the slow self. typing that seems to be happening
+let g:pymode_rope_lookup_project = 0
+
+
+" Turn off the highlighting of the max length column
+let g:pymode_options_colorcolumn = 0
+
+" Turn off the highlighting of the max length column
+let g:pymode_options_max_line_length = 120
+
+" Use folding (i.e. my files aren't that big)
+let g:vimwiki_folding=1
+
+"use solorized color scheme
+"syntax enable
+"set background=dark
+"colorscheme solarized
+colorscheme zenburn
+"colorscheme ir_black
+"colorscheme distinguished  "requires 256 terminal
+
+
+" turn on paste, paste stuff from the system clipboard, turn off paste
+"map <leader>W set paste; i<C-V>; set nopaste
+"map <Leader>W :set paste<CR>o<esc>"*]p:set nopaste<cr>
+map <Leader>W :set paste<CR>i<C-V><esc>:set nopaste<cr>
+
+" Ctrl-P for directory navigation
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" ignore these files as I'm probably not editing them
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+
+
+
+" UlitiSnips settings
+
+let g:ultisnips_python_style="google"
+let g:ultisnips_python_triple_quoting_style=1
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"if you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+map <Leader>u :UltiSnipsEdit<cr>
