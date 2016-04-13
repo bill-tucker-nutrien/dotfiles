@@ -10,7 +10,7 @@ syntax on
 
 "some advice for organizing this file:
 "  use sections:
-"  - General Sytemwide
+"  - General System-wide
 "  - Key-Mappings
 "  - Script-specific settings -- ordered by script
 "  - Playground for testing out new additions
@@ -23,8 +23,28 @@ set ts=4 sts=4 sw=4 expandtab
 nmap <silent> <leader>s :set spell<CR>
 nmap <silent> <leader>S :set spell!<CR>
 
+"visual spelling prompting
+highlight SpellBad term=standout cterm=bold ctermfg=203 ctermbg=0
+highlight SpellLocal term=standout cterm=bold ctermfg=203 ctermbg=0
+highlight SpellCap ctermfg=188 ctermbg=234
+highlight SpellRare ctermfg=188 ctermbg=234
+
 " Smart indenting
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+" set incremental search, start searching before enter is hit
+set incsearch
+
+" hi-light all matches when searching
+set hlsearch
+
+set history=100
+
+" Show matching bracket for .5 second -- don't load the annoying, more
+" permanent version
+set showmatch
+set matchtime=5
+let loaded_matchparen=1
 
 "set paste
 nmap <silent> <leader>p :set paste<CR>
