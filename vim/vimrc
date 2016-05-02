@@ -155,3 +155,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "if you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 map <Leader>u :UltiSnipsEdit<cr>
+
+
+" airline settings
+let g:airline#extensions#branch#use_vcscommand = 1
