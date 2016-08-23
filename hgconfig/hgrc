@@ -1,29 +1,116 @@
 [ui]
-username = Bill Tucker <bill.h.tucker@gmail.com>
+username = Bill Tucker <bill@realgo.com>
 verbose = True
+merge = vimdiff
+ignore = ~/.hgignore
 
+[auth]
+kiln.prefix = realires.kilnhg.com
+kiln.username = bill@realgo.com
+
+[merge-tools]
+vimdiff.executable = vimdiff
+vimdiff.args = -f -d $output -M $local $base $other -c "wincmd J" -c "set modifiable" -c "set write"
+vimdiff.premerge = keep
 
 [diff]
 git = on
 showfunc = on
 
-[extensions]
-color=
-# enable hg glog
-graphlog=
-pager=
-progress=
-rebase=
-record=
-# enable hg strip
-mq=
+[hooks]
+pretxncommit = python:~/.mercurial/hooks/require_bugzid.py:pretxncommit_nobugzid
 
+[kiln_scheme]
+kiln = http://realires.kilnhg.com
+
+[extensions]
+keyword =
+color =
+graphlog =
+keyword =
+pager =
+rebase =
+purge =
+record =
+shelve =
+
+; gestalt=C:\Program Files (x86)\Kiln Client\gestalt.py
+; kilnauth=C:\Program Files (x86)\Kiln Client\kilnauth.py
+; kilnpath=C:\Program Files (x86)\Kiln Client\kilnpath.py
+; big-push=C:\Program Files (x86)\Kiln Client\big-push.py
+; kiln=C:\Program Files (x86)\Kiln Client\kiln.py
+; caseguard=C:\Program Files (x86)\Kiln Client\caseguard.py
+; kbfiles=C:\Program Files (x86)\Kiln Client\kbfiles
+  
+[keyword]
+**.bat           = 
+**.cfc           = 
+**.cfm           = 
+**.coffee        = 
+**.conf          = 
+**.css           = 
+**.dtd           = 
+**.erb           = 
+**.ftl           = 
+**Gemfile        = 
+**.h             = 
+**.htm           = 
+**.html          = 
+**.i             = 
+**.inc           = 
+**.java          = 
+**.jmx           = 
+**.js            = 
+**.jsp           = 
+**.jspf          = 
+**.launch        = 
+**.map           = 
+**.md            = 
+**.policy        = 
+**.project       = 
+**.properties    = 
+**.py            = 
+**rails          = 
+**Rakefile       = 
+**.rb            = 
+**.rdoc          = 
+**.reg           = 
+**.ru            = 
+**.scss          = 
+**.sh            = 
+**.sql           = 
+**.SQL           = 
+**.tex           = 
+**.template      = 
+**.tld           = 
+**.txt           = 
+**.TXT           = 
+**.xbean         = 
+**.xml           = 
+**.xsl           = 
+**.xslt          = 
+**.yml           = 
 
 [color]
-# vim colors (bg=dark theme)
-diff.diffline = green bold
-diff.file_a = green bold
-diff.file_b = green bold
+status.modified = cyan
+status.added = green
+status.removed = red
+status.deleted = yellow bold underline
+status.unknown = magenta bold underline
+status.ignored = black bold
+diff.diffline = none
+diff.extended = cyan
+diff.file_a = red
+diff.file_b = green
 diff.hunk = yellow bold
-diff.deleted = red bold
-diff.inserted = cyan bold
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = white_background
+
+[alias]
+mlog = log -r "children(ancestor($1,$2)):: and branch($1)"
+blog = log -r 0::source --prune dest
+
+
+editor = /usr/bin/vim -c "r ~/.hgtemplate"
