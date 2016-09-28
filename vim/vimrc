@@ -156,7 +156,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 map <Leader>u :UltiSnipsEdit<cr>
 
-
 " airline settings
 "   show branch in version control system
 let g:airline#extensions#branch#use_vcscommand = 1
+let g:airline_powerline_fonts = 1
+let g:AirlineTheme='simple'
