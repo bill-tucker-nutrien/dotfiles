@@ -8,6 +8,11 @@
  cd ~/.vim/bundle
  git submodule init
  git submodule update
+ ln -s ~/dotfiles/gitconfig/.gitconfig  ~/.gitconfig 
+ ln -s ~/dotfiles/hgconfig/hgrc  ~/.hgrc 
+ ln -s ~/dotfiles/hgconfig/hgignore  ~/.hgignore 
+ ln -s ~/dotfiles/pythonstartup/.pythonstartup ~/.pythonstartup
+
 
 
  === update dependencies === 
