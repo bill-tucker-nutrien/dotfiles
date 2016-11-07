@@ -142,7 +142,9 @@ let g:ctrlp_cmd = 'CtrlP'
 " ignore these files as I'm probably not editing them
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-
+" remove markdown and text whitespace
+autocmd BufWritePre *.md :%s/\s\+$//e
+autocmd BufWritePre *.txt :%s/\s\+$//e
 
 
 " UlitiSnips settings
