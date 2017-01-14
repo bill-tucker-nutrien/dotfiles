@@ -1,4 +1,4 @@
- = TTY.TTYUI
+ui = TTY.TTYUI
 accounts = BillTucker
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
