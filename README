@@ -12,6 +12,7 @@
  ln -s ~/dotfiles/hgconfig/hgrc  ~/.hgrc 
  ln -s ~/dotfiles/hgconfig/hgignore  ~/.hgignore 
  ln -s ~/dotfiles/pythonstartup/.pythonstartup ~/.pythonstartup
+ ln -s ~/dotfiles/bash/.bash_aliases ~/.bash_aliases
 
 
 
