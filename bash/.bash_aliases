@@ -22,8 +22,15 @@ alias l='ls -CFh'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+#  (en_US.UTF-8 ignores hyphens (!))   locale won't affect sorting
+alias sort='LCALL=C sort'
 
+# cd multiple levels
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
+alias proj='cd  ~/work/projects'
 # export JAVA to use
 export JAVA_HOME=java-8-oracle/
 

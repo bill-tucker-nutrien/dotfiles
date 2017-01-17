@@ -3,6 +3,7 @@ filetype off
 
 call pathogen#infect()
 execute pathogen#infect()
+execute pathogen#helptags()
 
 filetype plugin indent on
 syntax on
@@ -109,6 +110,8 @@ autocmd FileType python set nonumber wrap
 "remove warnings on line length
 let g:pymode_lint_ignore = "E501"
 
+" use PEP8 compatible python indent
+let g:pymode_indent = 1
 " stop the slow self. typing that seems to be happening
 let g:pymode_rope_lookup_project = 0
 
