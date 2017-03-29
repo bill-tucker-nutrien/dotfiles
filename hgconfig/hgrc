@@ -21,9 +21,13 @@ showfunc = on
 pretxncommit = python:~/.mercurial/hooks/require_bugzid.py:pretxncommit_nobugzid
 
 [kiln_scheme]
-kiln = http://realires.kilnhg.com
+kiln = http://realires.fogbugz.com/Kiln/Code
 
 [extensions]
+
+kilnauth=~/dotfiles/kiln_extensions/kilnauth.py
+big-push=~/dotfiles/kiln_extensions/big-push.py
+kiln=~/dotfiles/kiln_extensions/kiln.py
 keyword =
 color =
 graphlog =
@@ -33,6 +37,8 @@ rebase =
 purge =
 record =
 shelve =
+inotify =
+extdiff = 
 
 ; gestalt=C:\Program Files (x86)\Kiln Client\gestalt.py
 ; kilnauth=C:\Program Files (x86)\Kiln Client\kilnauth.py
@@ -42,6 +48,13 @@ shelve =
 ; caseguard=C:\Program Files (x86)\Kiln Client\caseguard.py
 ; kbfiles=C:\Program Files (x86)\Kiln Client\kbfiles
   
+;[hgview]
+;interface =qt # or raw or curses or qt
+
+[exdiff]
+cmd.vimdiff = vim
+opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
+
 [keyword]
 **.bat           = 
 **.cfc           = 
@@ -111,6 +124,7 @@ diff.trailingwhitespace = white_background
 [alias]
 mlog = log -r "children(ancestor($1,$2)):: and branch($1)"
 blog = log -r 0::source --prune dest
+logr = log -r :
 
 
 editor = /usr/bin/vim -c "r ~/.hgtemplate"
