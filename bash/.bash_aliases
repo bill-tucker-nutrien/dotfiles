@@ -31,6 +31,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 alias proj='cd  ~/work/projects'
+alias real='cd  ~/work/realgo'
 # export JAVA to use
 export JAVA_HOME=java-8-oracle/
 
