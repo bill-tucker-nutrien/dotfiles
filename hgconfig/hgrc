@@ -55,6 +55,10 @@ extdiff =
 cmd.vimdiff = vim
 opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
 
+[bookmarks]
+
+track.current = True
+
 [keyword]
 **.bat           = 
 **.cfc           = 
