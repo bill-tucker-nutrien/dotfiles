@@ -20,9 +20,6 @@ syntax on
 "fix the tabbing
 set ts=4 sts=4 sw=4 expandtab
 
-"use spell checking with english default
-nmap <silent> <leader>s :set spell<CR>
-nmap <silent> <leader>S :set spell!<CR>
 
 "visual spelling prompting
 highlight SpellBad term=standout cterm=bold ctermfg=203 ctermbg=0
@@ -47,6 +44,11 @@ set showmatch
 set matchtime=5
 let loaded_matchparen=1
 
+""" shortcuts
+"use spell checking with english default
+nmap <silent> <leader>s :set spell<CR>
+nmap <silent> <leader>S :set spell!<CR>
+
 "set paste
 nmap <silent> <leader>p :set paste<CR>
 nmap <silent> <leader>P :set nopaste<CR>
@@ -54,6 +56,12 @@ nmap <silent> <leader>P :set nopaste<CR>
 "turn line numbers on and off
 nmap <silent> <leader>n :set nu<CR>
 nmap <silent> <leader>N :set nu!<CR>
+
+" copy and paste
+nmap <silent> <leader>v "+p
+nmap <silent> <leader>V "+P
+vmap <leader>c "+y
+
 
 set ruler
 
@@ -111,7 +119,10 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_open = 1
+" setting this to zero because of conflicts with vimwiki's VWS, q.v. Issue
+" #350
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 
