@@ -145,6 +145,9 @@ let g:pymode_options_max_line_length = 120
 
 " Use folding (i.e. my files aren't that big)
 let g:vimwiki_folding=1
+"
+" create a table to edit
+map <Leader>T :VimwikiTable<CR>
 
 "use solorized color scheme
 "syntax enable
