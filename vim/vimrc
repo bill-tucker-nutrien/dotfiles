@@ -102,6 +102,9 @@ map <leader>f 0idb2<ESC>A;<ESC>j
 "set so 07 increments like it's not in hex
 "set nrformats=alpha
 
+" combine lines with context-aware formatting
+set formatoptions+=j
+
 "expand all sections when opening python code
 autocmd Syntax python normal zR
 
