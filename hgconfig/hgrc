@@ -39,6 +39,10 @@ record =
 shelve =
 inotify =
 extdiff = 
+histedit =
+record =
+;show =
+
 
 ; gestalt=C:\Program Files (x86)\Kiln Client\gestalt.py
 ; kilnauth=C:\Program Files (x86)\Kiln Client\kilnauth.py
@@ -129,6 +133,7 @@ diff.trailingwhitespace = white_background
 mlog = log -r "children(ancestor($1,$2)):: and branch($1)"
 blog = log -r 0::source --prune dest
 logr = log -r :
-
+stash = shelve --config hooks.pretxncommit=
+xcommit = commit --config hooks.pretxncommit=
 
 editor = /usr/bin/vim -c "r ~/.hgtemplate"
