@@ -21,6 +21,7 @@ syntax on
 set ts=4 sts=4 sw=4 expandtab
 
 
+
 "visual spelling prompting
 highlight SpellBad term=standout cterm=bold ctermfg=203 ctermbg=0
 highlight SpellLocal term=standout cterm=bold ctermfg=203 ctermbg=0
@@ -145,7 +146,9 @@ let g:pymode_options_max_line_length = 120
 
 " Vimwiki stuff
 " Use folding (i.e. my files aren't that big)
-let g:vimwiki_folding=1
+set foldmethod=indent
+let g:vimwiki_folding = 1
+
 " convert vimwiki to HTML
 :nmap <Leader>wc <Plug>Vimwiki2HTML
 
