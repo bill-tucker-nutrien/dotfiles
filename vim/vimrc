@@ -114,7 +114,7 @@ autocmd FileType python set nonumber wrap
 "turn on only pylint via syntastic
 "" I turned this off so I don't get so many msgs and conflicts with pymode
 "let g:syntastic_python_checkers=['pylint']
-let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -147,7 +147,6 @@ let g:pymode_options_max_line_length = 120
 
 " Vimwiki stuff
 " Use folding (i.e. my files aren't that big)
-<<<<<<< HEAD
 set foldmethod=indent
 let g:vimwiki_folding = 1
 
@@ -158,13 +157,14 @@ let g:vimwiki_folding = 1
 " create a table to edit
 map <Leader>T :VimwikiTable<CR>
 
-"use solorized color scheme
+" set the colorschemes
 "syntax enable
-"set background=dark
+set background=dark
 "colorscheme solarized
 "colorscheme zenburn
 "colorscheme ir_black
 "colorscheme distinguished  "requires 256 terminal
+colorscheme PaperColor
 
 
 " turn on paste, paste stuff from the system clipboard, turn off paste
@@ -181,6 +181,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " remove markdown and text whitespace
 autocmd BufWritePre *.md :%s/\s\+$//e
 autocmd BufWritePre *.txt :%s/\s\+$//e
+autocmd BufWritePre *.wiki :%s/\s\+$//e
 
 
 " UlitiSnips settings
@@ -198,4 +199,4 @@ map <Leader>u :UltiSnipsEdit<cr>
 "   show branch in version control system
 let g:airline#extensions#branch#use_vcscommand = 1
 let g:airline_powerline_fonts = 1
-let g:AirlineTheme='simple'
+let g:AirlineTheme='PaperColor'
