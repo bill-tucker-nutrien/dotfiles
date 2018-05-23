@@ -99,6 +99,31 @@ let @d='0idb2A;j'
 
 map <leader>f 0idb2<ESC>A;<ESC>j
 
+"make a hash rocket for javascript
+map <leader>l <space>=><space>
+
+" Clear the search buffer when hitting return
+" ... I think this screws up vimwiki search
+" nnoremap <CR> :nohlsearch<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
+
 "This was recommended by Chad at NCLUG, but .. is this better than smartindent
 "set autoindent 
 "set expandtab 
