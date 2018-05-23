@@ -20,6 +20,22 @@ syntax on
 "fix the tabbing
 set ts=4 sts=4 sw=4 expandtab
 
+" show trailing chars
+set listchars=tab:>~,nbsp:_,trail:.,extends:>,precedes:<
+set list
+
+" set undo file
+set undofile
+set undodir=$HOME/tmp/vimundo
+
+"scroll offset
+"
+
+function Tab2spacesFunction()
+        :set nopaste
+        :retab!
+endfunction
+command Tab2spaces :call Tab2spacesFunction()
 "visual spelling prompting
 highlight SpellBad term=standout cterm=bold ctermfg=203 ctermbg=0
 highlight SpellLocal term=standout cterm=bold ctermfg=203 ctermbg=0
@@ -98,6 +114,28 @@ map <leader>d :r !date '+\%a \%d \%B \%Y' <CR>
 let @d='0idb2A;j'
 
 map <leader>f 0idb2<ESC>A;<ESC>j
+
+
+" Clear the search buffer when hitting return
+" ..this breaks vimwiki's lopen open mode. return doesn't follow links
+" nnoremap <CR> :nohlsearch<cr>
+
+"from gary bernhardt's dotfiles:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
 
 "This was recommended by Chad at NCLUG, but .. is this better than smartindent
 "set autoindent 
