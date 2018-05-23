@@ -115,7 +115,6 @@ let @d='0idb2A;j'
 
 map <leader>f 0idb2<ESC>A;<ESC>j
 
-<<<<<<< HEAD
 "make a hash rocket for javascript
 map <leader>l <space>=><space>
 
