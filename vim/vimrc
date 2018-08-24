@@ -53,6 +53,19 @@ set hlsearch
 
 set history=100
 
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 " Show matching bracket for .5 second -- don't load the annoying, more
 " permanent version
 set showmatch
@@ -81,6 +94,9 @@ nmap <silent> <leader>N :set nu!<CR>
 nmap <silent> <leader>v "+p
 nmap <silent> <leader>V "+P
 vmap <leader>c "+y
+
+" format sql
+vmap <leader>F :!sqlformat --reindent --keywords upper --identifiers lower<CR>
 
 
 set ruler
@@ -211,6 +227,7 @@ set background=dark
 "colorscheme ir_black
 "colorscheme distinguished  "requires 256 terminal
 colorscheme PaperColor
+" colorscheme grb256
 
 " use blowfish for encryption
 set cm=blowfish2
@@ -224,6 +241,7 @@ map <Leader>W :set paste<CR>i<C-V><esc>:set nopaste<cr>
 " Ctrl-P for directory navigation
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mod = 'ra'
 " ignore these files as I'm probably not editing them
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
