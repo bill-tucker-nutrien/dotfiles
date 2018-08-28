@@ -66,21 +66,24 @@ autocmd BufReadPost *
   \ endif
 """ shortcuts
 "use spell checking with english default
-nmap <silent> <leader>s :set spell<CR>
-nmap <silent> <leader>S :set spell!<CR>
+nmap <silent> <Leader>s :set spell<CR>
+nmap <silent> <Leader>S :set spell!<CR>
 
 "set paste
-nmap <silent> <leader>p :set paste<CR>
-nmap <silent> <leader>P :set nopaste<CR>
+nmap <silent> <Leader>p :set paste<CR>
+nmap <silent> <Leader>P :set nopaste<CR>
 
 "turn line numbers on and off
-nmap <silent> <leader>n :set nu<CR>
-nmap <silent> <leader>N :set nu!<CR>
+nmap <silent> <Leader>n :set nu<CR>
+nmap <silent> <Leader>N :set nu!<CR>
 
 " copy and paste
-nmap <silent> <leader>v "+p
-nmap <silent> <leader>V "+P
-vmap <leader>c "+y
+nmap <silent> <Leader>v "+p
+nmap <silent> <Leader>V "+P
+vmap <Leader>c "+y
+
+" for linux, use
+set clipboard=unnamedplus
 
 
 set ruler
