@@ -98,6 +98,8 @@ vmap <leader>c "+y
 " format sql
 vmap <leader>F :!sqlformat --reindent --keywords upper --identifiers lower<CR>
 
+" convert comma separated list to one element on a line
+map <leader>cs :%s/,/\r/g<CR>
 
 set ruler
 
@@ -124,6 +126,7 @@ set nocompatible
 
 "let @d=':r !date '+%a %d %B %Y''
 map <leader>d :r !date '+\%a \%d \%B \%Y' <CR>
+map <leader>D <CR><CR><CR>Today:<CR><CR>
 
 "db2commandline-ify a sql statement
 " use ctrl-v<escape> to insert this special escape character
@@ -132,7 +135,7 @@ let @d='0idb2A;j'
 map <leader>f 0idb2<ESC>A;<ESC>j
 
 "make a hash rocket for javascript
-map <leader>l <space>=><space>
+nmap <leader>l <space>=><space>
 
 
 " Clear the search buffer when hitting return
@@ -200,6 +203,9 @@ let g:pymode_indent = 1
 " stop the slow self. typing that seems to be happening
 let g:pymode_rope_lookup_project = 0
 
+" Turn on the rope script (1 on, 0 off)
+let g:pymode_rope = 0
+
 
 " Turn off the highlighting of the max length column
 let g:pymode_options_colorcolumn = 0
@@ -249,6 +255,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 autocmd BufWritePre *.md :%s/\s\+$//e
 autocmd BufWritePre *.txt :%s/\s\+$//e
 autocmd BufWritePre *.wiki :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
 
 
 " UlitiSnips settings
