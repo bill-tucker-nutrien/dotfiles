@@ -4,7 +4,7 @@
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/pack/plugins/start/vimwiki"]
 	path = vim/pack/plugins/start/vimwiki
-	url = https://github.com/vim-scripts/vimwiki.git
+	url = https://github.com/vimwiki/vimwiki.git
 [submodule "vim/pack/plugins/start/surround"]
 	path = vim/pack/plugins/start/surround
 	url = git://github.com/tpope/vim-surround.git
@@ -13,4 +13,16 @@
 	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "vim/pack/plugins/start/ctrlp.vim"]
 	path = vim/pack/plugins/start/ctrlp.vim
-    url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/kien/ctrlp.vim
+[submodule "vim/pack/plugins/start/vim-bbye"]
+	path = vim/pack/plugins/start/vim-bbye
+	url = https://github.com/moll/vim-bbye.git
+[submodule "vim/pack/plugins/start/vim-tree"]
+	path = vim/pack/plugins/start/vim-tree
+	url = https://github.com/mhinz/vim-tree.git
+[submodule "vim/pack/plugins/start/vim-surround"]
+	path = vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/pack/plugins/start/vim-airline"]
+	path = vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
