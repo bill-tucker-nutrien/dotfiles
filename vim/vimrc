@@ -1,10 +1,6 @@
 "Begin section for pathogen setup
 filetype off
 
-" call pathogen#infect()
-" execute pathogen#infect()
-" execute pathogen#helptags()
-
 filetype plugin indent on
 syntax on
 "End section for pathogen ----
@@ -102,21 +98,24 @@ autocmd BufReadPost *
   \ endif
 """ shortcuts
 "use spell checking with english default
-nmap <silent> <leader>s :set spell<CR>
-nmap <silent> <leader>S :set spell!<CR>
+nmap <silent> <Leader>s :set spell<CR>
+nmap <silent> <Leader>S :set spell!<CR>
 
 "set paste
-nmap <silent> <leader>p :set paste<CR>
-nmap <silent> <leader>P :set nopaste<CR>
+nmap <silent> <Leader>p :set paste<CR>
+nmap <silent> <Leader>P :set nopaste<CR>
 
 "turn line numbers on and off
-nmap <silent> <leader>n :set nu<CR>
-nmap <silent> <leader>N :set nu!<CR>
+nmap <silent> <Leader>n :set nu<CR>
+nmap <silent> <Leader>N :set nu!<CR>
 
 " copy and paste
-nmap <silent> <leader>v "+p
-nmap <silent> <leader>V "+P
-vmap <leader>c "+y
+nmap <silent> <Leader>v "+p
+nmap <silent> <Leader>V "+P
+vmap <Leader>c "+y
+
+" for linux, use
+set clipboard=unnamedplus
 
 " format sql
 vmap <leader>F :!sqlformat --reindent --keywords upper --identifiers lower<CR>
@@ -164,6 +163,8 @@ nmap <leader>l <space>=><space>
 " Clear the search buffer when hitting return
 " ..this breaks vimwiki's lopen open mode. return doesn't follow links
 " nnoremap <CR> :nohlsearch<cr>
+" turn off vim wiki tab control in insert mode, so ultisnips will work
+let g:vimwiki_table_mappings = 0
 
 "from gary bernhardt's dotfiles:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -318,6 +319,9 @@ map <Leader>u :UltiSnipsEdit<cr>
 let g:airline#extensions#branch#use_vcscommand = 1
 let g:airline_powerline_fonts = 1
 let g:AirlineTheme='PaperColor'
+
+" signify settings
+let g:signify_vcs_list = [ 'git', 'hg' ]
 
 
 " Put these lines at the very end of your vimrc file.
