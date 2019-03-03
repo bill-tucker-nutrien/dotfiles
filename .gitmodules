@@ -1,24 +1,16 @@
-[submodule "vim/bundle/python-mode"]
-	path = vim/bundle/python-mode
-    url = https://github.com/python-mode/python-mode.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
+
+[submodule "vim/pack/plugins/start/syntastic"]
+	path = vim/pack/plugins/start/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/vimwiki"]
-	path = vim/bundle/vimwiki
+[submodule "vim/pack/plugins/start/vimwiki"]
+	path = vim/pack/plugins/start/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
-[submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
+[submodule "vim/pack/plugins/start/surround"]
+	path = vim/pack/plugins/start/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/colorschemes"]
-	path = vim/bundle/colorschemes
+[submodule "vim/pack/plugins/start/colorschemes"]
+	path = vim/pack/plugins/start/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
+[submodule "vim/pack/plugins/start/ctrlp.vim"]
+	path = vim/pack/plugins/start/ctrlp.vim
     url = https://github.com/kien/ctrlp.vim.git
