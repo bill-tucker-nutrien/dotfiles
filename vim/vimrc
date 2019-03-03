@@ -1,9 +1,9 @@
 "Begin section for pathogen setup
 filetype off
 
-call pathogen#infect()
-execute pathogen#infect()
-execute pathogen#helptags()
+" call pathogen#infect()
+" execute pathogen#infect()
+" execute pathogen#helptags()
 
 filetype plugin indent on
 syntax on
@@ -53,6 +53,29 @@ set hlsearch
 
 set history=100
 
+if &term =~ "xterm\\|rxvt"
+  " use an orange cursor in insert mode
+  let &t_SI = "\<Esc>]12;orange\x7"
+  " use a red cursor otherwise
+  let &t_EI = "\<Esc>]12;red\x7"
+  silent !echo -ne "\033]12;red\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
+endif
+
+" change cursor shape
+if &term =~ '^xterm\\|rxvt'
+  " solid underscore
+  " let &t_SI .= "\<Esc>[4 q"
+  " solid block
+  let &t_EI .= "\<Esc>[2 q"
+  " 1 or 0 -> blinking block
+  " 3 -> blinking underscore
+  " Recent versions of xterm (282 or above) also support
+  " 5 -> blinking vertical bar
+  " 6 -> solid vertical bar
+endif
 
 " The Silver Searcher
 if executable('ag')
@@ -176,22 +199,43 @@ autocmd Syntax python normal zR
 autocmd FileType python set nonumber wrap
 
 
-"turn on only pylint via syntastic
-"" I turned this off so I don't get so many msgs and conflicts with pymode
-"let g:syntastic_python_checkers=['pylint']
-let g:syntastic_javascript_checkers=['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+""turn on only pylint via syntastic
+""" I turned this off so I don't get so many msgs and conflicts with pymode
+""let g:syntastic_python_checkers=['pylint']
+"let g:syntastic_javascript_checkers=['eslint']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" setting this to zero because of conflicts with vimwiki's VWS, q.v. Issue
-" #350
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"" let g:syntastic_check_on_open = 1
+"" setting this to zero because of conflicts with vimwiki's VWS, q.v. Issue
+"" #350
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
 
+
+" use ale for syntax checking
+let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_lint_on_text_changed = 'normal'
+" let g:ale_lint_on_insert_leave = 1
+" lint only on save file
+let g:ale_lint_on_text_changed = 'never'
+" don't lint when opening a file
+let g:ale_lint_on_enter = 0
+" let g:ale_pattern_options = {'.*\.gem.*\.rb$|.*\.rubies.*\.rb$': {'ale_enabled': 0}}
+let g:ale_set_highlights = 0
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+" navigate between ale errors
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" quick fix activation
+" let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+" Show 5 lines of errors (default: 10)
+let g:ale_list_window_size = 5
 
 
 "let g:pymode_lint_ignore = "E501,E2,W"
@@ -232,7 +276,7 @@ set background=dark
 "colorscheme zenburn
 "colorscheme ir_black
 "colorscheme distinguished  "requires 256 terminal
-colorscheme PaperColor
+"colorscheme PaperColor
 " colorscheme grb256
 
 " use blowfish for encryption
@@ -274,3 +318,13 @@ map <Leader>u :UltiSnipsEdit<cr>
 let g:airline#extensions#branch#use_vcscommand = 1
 let g:airline_powerline_fonts = 1
 let g:AirlineTheme='PaperColor'
+
+
+" Put these lines at the very end of your vimrc file.
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
