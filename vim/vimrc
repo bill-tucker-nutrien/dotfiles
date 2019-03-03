@@ -141,6 +141,8 @@ map <leader>l <space>=><space>
 " Clear the search buffer when hitting return
 " ..this breaks vimwiki's lopen open mode. return doesn't follow links
 " nnoremap <CR> :nohlsearch<cr>
+" turn off vim wiki tab control in insert mode, so ultisnips will work
+let g:vimwiki_table_mappings = 0
 
 "from gary bernhardt's dotfiles:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -270,3 +272,6 @@ map <Leader>u :UltiSnipsEdit<cr>
 let g:airline#extensions#branch#use_vcscommand = 1
 let g:airline_powerline_fonts = 1
 let g:AirlineTheme='PaperColor'
+
+" signify settings
+let g:signify_vcs_list = [ 'git', 'hg' ]
