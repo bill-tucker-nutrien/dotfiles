@@ -35,3 +35,9 @@
 [submodule "vim/pack/plugins/start/vim-snippets"]
 	path = vim/pack/plugins/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/pack/plugins/start/vim-vinegar"]
+	path = vim/pack/plugins/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/pack/plugins/start/vim-commentary"]
+	path = vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
