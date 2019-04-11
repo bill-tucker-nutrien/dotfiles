@@ -147,8 +147,8 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 set nocompatible
 
 "let @d=':r !date '+%a %d %B %Y''
-map <leader>d :r !date '+\%a \%d \%B \%Y' <CR>
-map <leader>D <CR><CR><CR>Today:<CR><CR>
+map <leader>D :r !date '+\%a \%d \%B \%Y' <CR>
+"map <leader>D <CR><CR><CR>Today:<CR><CR>
 
 "db2commandline-ify a sql statement
 " use ctrl-v<escape> to insert this special escape character
@@ -335,6 +335,9 @@ let g:signify_vcs_list = [ 'git', 'hg' ]
 
 
 " Put these lines at the very end of your vimrc file.
+
+" tell vim places to look for tags
+set tags=./tags;,tags;,$HOME
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
