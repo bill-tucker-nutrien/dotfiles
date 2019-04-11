@@ -270,8 +270,10 @@ let g:ale_list_window_size = 5
 
 " Vimwiki stuff
 " Use folding (i.e. my files aren't that big)
-set foldmethod=indent
-let g:vimwiki_folding = 1
+" set foldmethod=indent
+set foldmethod=syntax
+set nofoldenable
+let g:vimwiki_folding ="syntax"
 
 " convert vimwiki to HTML
 :nmap <Leader>wc <Plug>Vimwiki2HTML
