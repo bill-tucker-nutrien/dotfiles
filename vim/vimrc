@@ -120,6 +120,7 @@ set clipboard=unnamedplus
 " format sql
 " vmap <leader>F :!sqlformat --reindent --keywords upper --identifiers lower <CR>
 vmap <leader>F :!sqlformat --reindent --keywords upper --identifiers lower -<CR>
+vmap <leader>X :!xmllint --format --recover -<CR>
 
 " convert comma separated list to one element on a line
 map <leader>cs :%s/,/\r/g<CR>
@@ -148,8 +149,8 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 set nocompatible
 
 "let @d=':r !date '+%a %d %B %Y''
-map <leader>d :r !date '+\%a \%d \%B \%Y' <CR>
-map <leader>D <CR><CR><CR>Today:<CR><CR>
+map <leader>D :r !date '+\%a \%d \%B \%Y' <CR>
+" map <leader>D <CR><CR><CR>Today:<CR><CR>
 
 "db2commandline-ify a sql statement
 " use ctrl-v<escape> to insert this special escape character
@@ -197,7 +198,7 @@ set formatoptions+=j
 " file exploration menu settings
 let g:netrw_banner = 0        " remove directions at top of file listing
 let g:netrw_liststyle=3       " tree style listing
-let g:netrw_browse_split = 2  " split horizontal
+let g:netrw_browse_split = 3  " split horizontal
 let g:netrw_altv = 1
 let g:netrw_winsize=25        " width of window
 let g:netrw_preview=1
@@ -303,14 +304,25 @@ map <Leader>W :set paste<CR>i<C-V><esc>:set nopaste<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mod = 'ra'
+let g:ctrlp_open_new_file = 'v'
 " ignore these files as I'm probably not editing them
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](node_modules)',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
+
 
 " remove markdown and text whitespace
+autocmd BufWritePre *.clj :%s/\s\+$//e
+autocmd BufWritePre *.cfm :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.java :%s/\s\+$//e
 autocmd BufWritePre *.md :%s/\s\+$//e
+autocmd BufWritePre *.tex :%s/\s\+$//e
 autocmd BufWritePre *.txt :%s/\s\+$//e
 autocmd BufWritePre *.wiki :%s/\s\+$//e
-autocmd BufWritePre *.html :%s/\s\+$//e
 
 
 " UlitiSnips settings
