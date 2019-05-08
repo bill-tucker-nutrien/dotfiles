@@ -1,6 +1,6 @@
 set visualbell
 set noerrorbells
-let mapleader = " "
+let mapleader = "\"
 set surround
 
 
@@ -9,7 +9,6 @@ nnoremap [m :action MethodUp<cr>
 " Next method.
 nnoremap ]m :action MethodDown<cr>
 
-let mapleader = " "
 map <leader>a :action $SelectAll<CR>
 map <leader>b :action GotoDeclaration<CR>
 map <leader>c :action $Copy<CR>
@@ -24,12 +23,12 @@ map <leader>n :action FileChooser.NewFolder<CR>
 map <leader>o :action OverrideMethods<CR>
 map <leader>p :action ParameterInfo<CR>
 map <leader>q :action GuiDesigner.QuickJavadoc<CR>
-map <leader>r :action Replace<CR>
+map <leader>r <A-S-F10>
 map <leader>s :action SaveAll<CR>
 map <leader>t :action Vcs.UpdateProject<CR>
 map <leader>k :action Vcs.QuickListPopupAction<CR>
 map <leader>u :action GotoSuperMethod<CR>
-map <leader>v :action VimVisualToggleBlockMode<CR>
+map <leader>v :action $Paste<CR>
 map <leader>w :action EditorSelectWord<CR>
 map <leader>x :action $Cut<CR>
 map <leader>y :action EditorDeleteLine<CR>
