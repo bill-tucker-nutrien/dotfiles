@@ -26,6 +26,9 @@ set undodir=$HOME/tmp/vimundo
 "scroll offset
 "
 
+" spacebar is the biggest key, so you that as leader.
+let mapleader = "\<Space>"
+
 function Tab2spacesFunction()
         :set nopaste
         :retab!
@@ -196,7 +199,7 @@ set formatoptions+=j
 " file exploration menu settings
 let g:netrw_banner = 0        " remove directions at top of file listing
 let g:netrw_liststyle=3       " tree style listing
-let g:netrw_browse_split = 2  " split horizontal
+let g:netrw_browse_split = 3  " split horizontal
 let g:netrw_altv = 1
 let g:netrw_winsize=25        " width of window
 let g:netrw_preview=1
@@ -313,6 +316,9 @@ autocmd BufWritePre *.md :%s/\s\+$//e
 autocmd BufWritePre *.txt :%s/\s\+$//e
 autocmd BufWritePre *.wiki :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.json :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.java :%s/\s\+$//e
 
 
 " UlitiSnips settings
