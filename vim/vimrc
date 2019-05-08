@@ -3,7 +3,6 @@ filetype off
 
 filetype plugin indent on
 syntax on
-"End section for pathogen ----
 
 "some advice for organizing this file:
 "  use sections:
@@ -150,7 +149,7 @@ set nocompatible
 
 "let @d=':r !date '+%a %d %B %Y''
 map <leader>D :r !date '+\%a \%d \%B \%Y' <CR>
-" map <leader>D <CR><CR><CR>Today:<CR><CR>
+"map <leader>D <CR><CR><CR>Today:<CR><CR>
 
 "db2commandline-ify a sql statement
 " use ctrl-v<escape> to insert this special escape character
@@ -249,30 +248,33 @@ let g:ale_set_quickfix = 1
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
 
+"-----
+" I"m switching from pymode to jedi
+""let g:pymode_lint_ignore = "E501,E2,W"
+""remove warnings on line length
+"let g:pymode_lint_ignore = "E501"
 
-"let g:pymode_lint_ignore = "E501,E2,W"
-"remove warnings on line length
-let g:pymode_lint_ignore = "E501"
+"" use PEP8 compatible python indent
+"let g:pymode_indent = 1
+"" stop the slow self. typing that seems to be happening
+"let g:pymode_rope_lookup_project = 0
 
-" use PEP8 compatible python indent
-let g:pymode_indent = 1
-" stop the slow self. typing that seems to be happening
-let g:pymode_rope_lookup_project = 0
-
-" Turn on the rope script (1 on, 0 off)
-let g:pymode_rope = 0
+"" Turn on the rope script (1 on, 0 off)
+"let g:pymode_rope = 0
 
 
-" Turn off the highlighting of the max length column
-let g:pymode_options_colorcolumn = 0
+"" Turn off the highlighting of the max length column
+"let g:pymode_options_colorcolumn = 0
 
-" Turn off the highlighting of the max length column
-let g:pymode_options_max_line_length = 120
+"" Turn off the highlighting of the max length column
+"let g:pymode_options_max_line_length = 120
 
 " Vimwiki stuff
 " Use folding (i.e. my files aren't that big)
-set foldmethod=indent
-let g:vimwiki_folding = 1
+" set foldmethod=indent
+set foldmethod=syntax
+set nofoldenable
+let g:vimwiki_folding ="syntax"
 
 " convert vimwiki to HTML
 :nmap <Leader>wc <Plug>Vimwiki2HTML
@@ -347,6 +349,9 @@ let g:signify_vcs_list = [ 'git', 'hg' ]
 
 
 " Put these lines at the very end of your vimrc file.
+
+" tell vim places to look for tags
+set tags=./tags;,tags;,$HOME
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
