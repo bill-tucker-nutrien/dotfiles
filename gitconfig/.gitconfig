@@ -1,20 +1,21 @@
 [user]
 	name = Bill Tucker
-	email = bill@realgo.com
+    email = bill.h.tucker@gmail.com
 [color]
-	status = auto
+    status = auto
 [core]
-	excludesfile = /home/bbtucker/.gitignore
-	safecrlf = true
-	autocrlf = input
+    excludesfile = /home/bbtucker/.gitignore
+    safecrlf = true
+    autocrlf = input
     editor = vim
 [alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    bh = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+    type = cat-file -t
+    dump = cat-file -p
 [push]
-	default = simple
+    default = simple
