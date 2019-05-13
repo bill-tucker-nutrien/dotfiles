@@ -164,11 +164,7 @@ map <leader>f 0idb2<ESC>A;<ESC>j
 nmap <leader>l <space>=><space>
 
 
-" Clear the search buffer when hitting return
-" ..this breaks vimwiki's lopen open mode. return doesn't follow links
-" nnoremap <CR> :nohlsearch<cr>
-" turn off vim wiki tab control in insert mode, so ultisnips will work
-let g:vimwiki_table_mappings = 0
+
 
 "from gary bernhardt's dotfiles:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -278,6 +274,11 @@ let g:ale_list_window_size = 5
 set foldmethod=syntax
 set nofoldenable
 let g:vimwiki_folding ="syntax"
+" Clear the search buffer when hitting return
+" ..this breaks vimwiki's lopen open mode. return doesn't follow links
+" nnoremap <CR> :nohlsearch<cr>
+" turn off vim wiki tab control in insert mode, so ultisnips will work
+let g:vimwiki_table_mappings = 0
 
 " convert vimwiki to HTML
 :nmap <Leader>wc <Plug>Vimwiki2HTML

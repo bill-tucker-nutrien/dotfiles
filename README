@@ -18,5 +18,10 @@
 
 
 
- === update dependencies === 
- git submodule foreach git pull origin master
+=== update dependencies === 
+git submodule foreach git pull origin master
+ 
+=== add a new module ===
+    `git submodule add <git url>`
+
+
