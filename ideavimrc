@@ -1,6 +1,7 @@
 set visualbell
 set noerrorbells
-let mapleader = "\"
+" let mapleader = "\"
+let mapleader = " "
 set surround
 
 
@@ -8,6 +9,21 @@ set surround
 nnoremap [m :action MethodUp<cr>
 " Next method.
 nnoremap ]m :action MethodDown<cr>
+
+nnoremap <leader>gd :action GotoImplementation<cr>
+nnoremap <leader>gu :action FindUsages<cr>
+nnoremap <leader>gt :action GotoTest<cr>
+
+
+" navigation
+nmap <a-2> ActivateTerminalToolWindow
+nn <c-a>  :action GotoAction<CR>
+nn <c-t>t :action GotoFile<CR>
+nn <c-t>s :action GotoSymbol<CR>
+
+nnoremap <leader>j :action AceJumpAction<CR>
+" reload
+nnoremap <leader>rl :source ~/.ideavimrc<CR>
 
 map <leader>a :action $SelectAll<CR>
 map <leader>b :action GotoDeclaration<CR>

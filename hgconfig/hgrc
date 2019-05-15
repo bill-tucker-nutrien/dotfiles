@@ -19,14 +19,15 @@ showfunc = on
 
 [hooks]
 pretxncommit = python:~/.mercurial/hooks/require_bugzid.py:pretxncommit_nobugzid
+;pre-commit = python:~/.mercurial/hooks/check_dbdeployscripts.py:precommit_duplicate_dbdeployscript
 
 [kiln_scheme]
-kiln = http://realires.fogbugz.com/Kiln/Code
+kiln = ssh://realires.fogbugz.com/Kiln/Code
 
 [extensions]
 
 kilnauth=~/dotfiles/kiln_extensions/kilnauth.py
-big-push=~/dotfiles/kiln_extensions/big-push.py
+# big-push=~/dotfiles/kiln_extensions/big-push.py
 kiln=~/dotfiles/kiln_extensions/kiln.py
 keyword =
 color =
@@ -38,19 +39,21 @@ purge =
 record =
 shelve =
 inotify =
-extdiff = 
+extdiff =
 histedit =
 record =
+strip =
 ;show =
+transplant=
 
 
-; gestalt=C:\Program Files (x86)\Kiln Client\gestalt.py
-; kilnauth=C:\Program Files (x86)\Kiln Client\kilnauth.py
-; kilnpath=C:\Program Files (x86)\Kiln Client\kilnpath.py
-; big-push=C:\Program Files (x86)\Kiln Client\big-push.py
-; kiln=C:\Program Files (x86)\Kiln Client\kiln.py
-; caseguard=C:\Program Files (x86)\Kiln Client\caseguard.py
-; kbfiles=C:\Program Files (x86)\Kiln Client\kbfiles
+#; gestalt=C:\Program Files (x86)\Kiln Client\gestalt.py
+#; kilnauth=C:\Program Files (x86)\Kiln Client\kilnauth.py
+#; kilnpath=C:\Program Files (x86)\Kiln Client\kilnpath.py
+#; big-push=C:\Program Files (x86)\Kiln Client\big-push.py
+#; kiln=C:\Program Files (x86)\Kiln Client\kiln.py
+#; caseguard=C:\Program Files (x86)\Kiln Client\caseguard.py
+#; kbfiles=C:\Program Files (x86)\Kiln Client\kbfiles
   
 ;[hgview]
 ;interface =qt # or raw or curses or qt
@@ -134,6 +137,7 @@ mlog = log -r "children(ancestor($1,$2)):: and branch($1)"
 blog = log -r 0::source --prune dest
 logr = log -r :
 stash = shelve --config hooks.pretxncommit=
-xcommit = commit --config hooks.pretxncommit=
+# xcommit = commit --config hooks.pretxncommit=
+# meepcommit = $HG commit --config hooks.pretxncommit=
 
 editor = /usr/bin/vim -c "r ~/.hgtemplate"
