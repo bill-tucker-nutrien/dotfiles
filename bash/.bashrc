@@ -84,14 +84,27 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# add autojump
+source /usr/share/autojump/autojump.bash 
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Less Colors for Man Pages
+export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\e[0m'           # end mode
+export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias update='apt update && apt upgrade
+alias update='apt update && apt upgrade'
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -102,8 +115,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# enable programmable completion features (you do not need to enable
+# this, if it is already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -126,6 +139,17 @@ export NVM_DIR="$HOME/.nvm"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/bill/programming/google_cloud/google-cloud-sdk/path.bash.inc' ]; then source '/home/bill/programming/google_cloud/google-cloud-sdk/path.bash.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/bill/programming/google_cloud/google-cloud-sdk/completion.bash.inc' ]; then source '/home/bill/programming/google_cloud/google-cloud-sdk/completion.bash.inc'; fi
+# rust environment
+source $HOME/.cargo/env
 
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
+# Created by `userpath` on 2019-05-22 02:36:46
+export PATH="$PATH:/home/bill/.local/bin"
