@@ -39,6 +39,9 @@ alias real='cd  ~/work/realgo'
 # see: https://youtrack.jetbrains.com/issue/IDEA-78860   
 export IBUS_ENABLE_SYNC_MODE=1
 
+# mercurial special
+alias xcommit='hg commit --config hooks.pretxncommit='
+
 # enable nicer python console
 export PYTHONSTARTUP=~/.pythonstartup
 export GPGKEY=A233CC2E

@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/bill/programming/clojure/service3/env/dev/resources'
+let g:netrw_dirhist_2='/home/bill/programming/clojure/service3/env/dev'
+let g:netrw_dirhist_3='/home/bill/programming/clojure/service3/env'
+let g:netrw_dirhist_4='/home/bill/programming/clojure/service3'
+let g:netrw_dirhist_5='/home/bill'
+let g:netrw_dirhist_6='/home/bill/vimwiki'
+let g:netrw_dirhist_7='/home/bill/work/projects/myListings/my-project'
+let g:netrw_dirhist_8='/home/bill/work/projects/myListings/my-project/src'
