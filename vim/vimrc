@@ -151,8 +151,10 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 set nocompatible
 
 "let @d=':r !date '+%a %d %B %Y''
-map <leader>D :r !date '+\%a \%d \%B \%Y' <CR>
+" map <leader>D :r !date '+\%a \%d \%B \%Y' <CR>
 "map <leader>D <CR><CR><CR>Today:<CR><CR>
+" this lets me use it on linux and windows:
+map <leader>D :put =strftime('%a %d %b %Y') <CR>
 
 "db2commandline-ify a sql statement
 " use ctrl-v<escape> to insert this special escape character
@@ -270,8 +272,8 @@ let g:ale_list_window_size = 5
 
 " Vimwiki stuff
 " Use folding (i.e. my files aren't that big)
-" set foldmethod=indent
-set foldmethod=syntax
+set foldmethod=indent
+" set foldmethod=syntax
 set nofoldenable
 let g:vimwiki_folding ="syntax"
 " Clear the search buffer when hitting return
@@ -283,9 +285,14 @@ let g:vimwiki_table_mappings = 0
 " convert vimwiki to HTML
 :nmap <Leader>wc <Plug>Vimwiki2HTML
 
-
 " create a table to edit
 map <Leader>T :VimwikiTable<CR>
+
+" set up wiki locations
+let g:vimwiki_list = [{'vimwiki': '~/vimwiki/', 'vimwiki_html': '~/vimwiki_html/'}, {'snapinc': '~/vimwiki_snapinc', 'snapinc_html': '~/vimwiki_snapinc_html'}]
+
+
+
 
 " set the colorschemes
 "syntax enable
