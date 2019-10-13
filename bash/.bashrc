@@ -105,6 +105,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias update='apt update && apt upgrade'
 
+export EDITOR='vim'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
