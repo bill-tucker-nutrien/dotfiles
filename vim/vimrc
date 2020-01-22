@@ -275,7 +275,7 @@ let g:ale_list_window_size = 5
 set foldmethod=indent
 " set foldmethod=syntax
 set nofoldenable
-let g:vimwiki_folding ="syntax"
+let g:vimwiki_folding ="list"
 " Clear the search buffer when hitting return
 " ..this breaks vimwiki's lopen open mode. return doesn't follow links
 " nnoremap <CR> :nohlsearch<cr>
