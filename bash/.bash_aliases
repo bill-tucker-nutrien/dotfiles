@@ -34,8 +34,12 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# export JAVA to use
-# export JAVA_HOME=java-8-oracle/
+# mirror pbcopy and pbpaste (macOs) using linux
+
+# from https://www.ostechnix.com/how-to-use-pbcopy-and-pbpaste-commands-on-linux/
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 
 # intellij has some ibus incompatibility issues
 # see: https://youtrack.jetbrains.com/issue/IDEA-78860   
