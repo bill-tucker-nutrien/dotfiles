@@ -18,6 +18,7 @@ alias ll='ls -alFh'
 alias la='ls -Ah'
 alias l='ls -CFh'
 
+alias exa='~/bin/exa-linux-x86_64'
 # ask if you want to delete files
 alias rm='rm -I'
 
@@ -33,8 +34,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias proj='cd  ~/work/projects'
-alias real='cd  ~/work/realgo'
 # export JAVA to use
 # export JAVA_HOME=java-8-oracle/
 
@@ -43,7 +42,7 @@ alias real='cd  ~/work/realgo'
 export IBUS_ENABLE_SYNC_MODE=1
 
 # mercurial special
-alias xcommit='hg commit --config hooks.pretxncommit='
+# alias xcommit='hg commit --config hooks.pretxncommit='
 
 # enable nicer python console
 export PYTHONSTARTUP=~/.pythonstartup
