@@ -154,3 +154,5 @@ source $HOME/.cargo/env
 [ -f /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/bill/.nvm/versions/node/v10.13.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
 # Created by `userpath` on 2019-05-22 02:36:46
 export PATH="$PATH:/home/bill/.local/bin"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

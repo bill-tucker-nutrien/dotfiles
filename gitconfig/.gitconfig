@@ -6,7 +6,7 @@
 [core]
     excludesfile = /home/bbtucker/.gitignore
     safecrlf = true
-    autocrlf = input
+	autocrlf = false
     editor = vim
 [alias]
     co = checkout
@@ -19,3 +19,5 @@
     dump = cat-file -p
 [push]
     default = simple
+[credential]
+	helper = store
