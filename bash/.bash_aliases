@@ -40,9 +40,15 @@ alias .....='cd ../../../..'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
+# alias ip b/c hard to remember these options
+alias ipa='ip -br -color a'
+alias ipl='ip -br -color link'
+
+# alias tree so it ignores node_modules
+alias tree="tree -I 'node_modules|__py_cache__|venv'"
 
 # intellij has some ibus incompatibility issues
-# see: https://youtrack.jetbrains.com/issue/IDEA-78860   
+# see: https://youtrack.jetbrains.com/issue/IDEA-78860
 export IBUS_ENABLE_SYNC_MODE=1
 
 # mercurial special
