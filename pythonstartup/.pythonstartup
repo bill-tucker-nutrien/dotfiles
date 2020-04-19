@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # import rlcompleter
 # import readline
 
@@ -23,6 +26,7 @@ import readline
 
 HISTORY_FILE_PATH = os.path.expanduser('~/.python_history')
 
+PYTHONPYCACHEPREFIX = os.path.expanduser('~/.local/pycache')
 
 class IndentableCompleter(rlcompleter.Completer):
     def complete(self, text, state):
@@ -43,6 +47,8 @@ def load_history(history_file_path=HISTORY_FILE_PATH):
     if sys.version_info.major > 2 and os.path.exists(HISTORY_FILE_PATH):
         readline.read_history_file(HISTORY_FILE_PATH)
 
+# sys.ps1 = "🐍 "
+# sys.ps2 = "🐚 "
 
 load_history()
 
