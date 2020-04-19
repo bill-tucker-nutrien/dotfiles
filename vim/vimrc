@@ -15,6 +15,10 @@ syntax on
 "fix the tabbing
 set ts=4 sts=4 sw=4 expandtab
 
+" via hillel wayne
+" don't slow macros by redrawing of screen
+set lazyredraw
+
 " show trailing chars
 set listchars=tab:>~,nbsp:_,trail:.,extends:>,precedes:<
 set list
@@ -186,8 +190,8 @@ inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 "This was recommended by Chad at NCLUG, but .. is this better than smartindent
-"set autoindent 
-"set expandtab 
+"set autoindent
+"set expandtab
 
 "set so 07 increments like it's not in hex
 "set nrformats=alpha
@@ -210,6 +214,36 @@ autocmd Syntax python normal zR
 "wrap code lines..so you can see what's going on.
 autocmd FileType python set nonumber wrap
 
+
+"Macros from Hillel Wayne for managing macros
+"s:macro_file is where I have macros.json
+
+function! s:macro_list(ArgLead, CmdLine, CursorPos)
+  let macros = json_decode(readfile(s:macro_file))
+  return join(keys(macros), "\n")
+endfunction
+
+function! s:GetMacro(macro_name)
+  let macros = json_decode(readfile(s:macro_file))
+  echom macros[a:macro_name]
+endfunction
+
+command! -nargs=1 -complete=custom,s:macro_list GetMacro call s:GetMacro(<f-args>)
+
+function! s:SetMacro(macro_name, reg)
+  let macros = json_decode(readfile(s:macro_file))
+  call setreg(a:reg, macros[a:macro_name])
+endfunction
+
+command! -nargs=+ SetMacro call s:SetMacro(<f-args>)
+
+function! s:SaveMacro(macro_name, reg)
+  let macros = json_decode(readfile(s:macro_file))
+  let macros[a:macro_name] = getreg(a:reg)
+  call writefile([json_encode(macros)], s:macro_file)
+endfunction
+
+command! -nargs=+ SaveMacro call s:SaveMacro(<f-args>)
 
 ""turn on only pylint via syntastic
 """ I turned this off so I don't get so many msgs and conflicts with pymode
@@ -238,6 +272,15 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 " let g:ale_pattern_options = {'.*\.gem.*\.rb$|.*\.rubies.*\.rb$': {'ale_enabled': 0}}
 let g:ale_set_highlights = 0
+let g:ale_lint_on_save = 1
+
+
+" Use the global executable with a special name for flake8.
+" installed black with pipx
+let g:ale_python_black_executable = '~/.local/bin/black'
+let g:ale_python_black_use_global = 1
+
+
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 " navigate between ale errors
@@ -289,8 +332,21 @@ let g:vimwiki_table_mappings = 0
 map <Leader>T :VimwikiTable<CR>
 
 " set up wiki locations
-let g:vimwiki_list = [{'vimwiki': '~/vimwiki/', 'vimwiki_html': '~/vimwiki_html/'}, {'snapinc': '~/vimwiki_snapinc', 'snapinc_html': '~/vimwiki_snapinc_html'}]
+" let g:vimwiki_list = [{'vimwiki': '~/vimwiki/', 'vimwiki_html': '~/vimwiki_html/'}, {'topdevz': '~/vimwiki_topdevz', 'topdevz_html': '~/vimwiki_topdevz_html'},{'snapinc': '~/vimwiki_snapinc', 'snapinc_html': '~/vimwiki_snapinc_html'}]
 
+let vimwiki = {}
+let vimwiki.path = '~/vimwiki/'
+
+let topdevz_wiki = {}
+let topdevz_wiki.path = '~/vimwiki_topdevz'
+let snapinc_wiki = {}
+let snapinc_wiki.path = '~/vimwiki_snapinc'
+
+let g:vimwiki_list = [{}, topdevz_wiki, snapinc_wiki]
+
+
+" set up notational-fzf: https://github.com/alok/notational-fzf-vim
+let g:nv_search_paths = ['~/vimwiki', '~/writing', '/home/bill/.local/share/jrnl/journal.txt' ]
 
 
 
@@ -307,6 +363,8 @@ set background=dark
 " use blowfish for encryption
 set cm=blowfish2
 
+" might have to set the location of dynamic python libraries
+" set pythonthreedll=/usr/local/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.a
 
 " turn on paste, paste stuff from the system clipboard, turn off paste
 "map <leader>W set paste; i<C-V>; set nopaste
@@ -320,11 +378,12 @@ let g:ctrlp_working_path_mod = 'ra'
 let g:ctrlp_open_new_file = 'v'
 " ignore these files as I'm probably not editing them
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](node_modules)',
-    \ 'file': '\v\.(exe|so|dll)$',
-    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-    \ }
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|__pycache__)|(\.(swp|ico|git|svn))$'
+" let g:ctrlp_custom_ignore = {
+"     \ 'dir':  '\v[\/](node_modules|__pycache__)',
+"     \ 'file': '\v\.(exe|so|dll)$',
+"     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"     \ }
 
 
 " remove markdown and text whitespace
@@ -338,6 +397,11 @@ autocmd BufWritePre *.md :%s/\s\+$//e
 autocmd BufWritePre *.tex :%s/\s\+$//e
 autocmd BufWritePre *.txt :%s/\s\+$//e
 autocmd BufWritePre *.wiki :%s/\s\+$//e
+
+"Remove all trailing whitespace with a manual command because I can't think of
+"all the file types I'll end up using.  Let's use the key capital Q.
+" capital Q is the entry to ex, the standard editor; but we use vim
+nnoremap Q :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 
 " format rust code on save
