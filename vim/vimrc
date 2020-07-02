@@ -79,6 +79,10 @@ if &term =~ '^xterm\\|rxvt'
   " 6 -> solid vertical bar
 endif
 
+" Here's where we set comment/uncomment strings link to files
+" q.v. https://github.com/tpope/vim-commentary
+autocmd FileType sql setlocal commentstring=--\ %s
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
