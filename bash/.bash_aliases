@@ -4,7 +4,7 @@
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='exa --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -14,9 +14,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alFh'
-alias la='ls -Ah'
-alias l='ls -CFh'
+# alias ll='exa -alFh --color=auto'
+alias ll='exa -alFh --color=auto -snew'  # sort by newest modstamp
+alias la='exa -Ah'
+alias l='ls -Fh'  # what is this?
+
+alias updagra='sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y --purge'
 
 alias exa='~/bin/exa-linux-x86_64'
 # ask if you want to delete files
@@ -46,6 +49,12 @@ alias ipl='ip -br -color link'
 
 # alias tree so it ignores node_modules
 alias tree="tree -I 'node_modules|__py_cache__|venv'"
+
+# start a virtualenv
+alias pyv="source venv/bin/activate"
+alias pystart="source venv/bin/activate && pip install pip -U"
+# create a virtualenv
+alias vpy="python3.9 -m venv venv --prompt "$1""
 
 # intellij has some ibus incompatibility issues
 # see: https://youtrack.jetbrains.com/issue/IDEA-78860
