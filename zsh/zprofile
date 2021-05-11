@@ -1,0 +1,16 @@
+# aliases
+alias ll="ls -lah"
+alias vim=nvim
+alias retmux="tmux attach-session -t $1"
+
+# agrible schema locations
+export AS_DIR=/Users/bi01043261/PycharmProjects/agrible-schema
+source ~/PycharmProjects/agrible-schema/as-docker.sh
+
+# agrible mfr locations
+export MFR_DIR=/Users/bi01043261/PycharmProjects/morningfarmreport
+export PDAPI_DIR=/Users/bi01043261/PycharmProjects/product-data-api
+export PACKAGECLOUD_MASTER_TOKEN= 
+# This should be using MFG_DIR
+source ~/PycharmProjects/morningfarmreport/mfr-docker.sh
+
