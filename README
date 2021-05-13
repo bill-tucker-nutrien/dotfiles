@@ -11,7 +11,7 @@
  ln -s ~/dotfiles/gitconfig/.gitconfig  ~/.gitconfig 
  ln -s ~/dotfiles/hgconfig/hgrc  ~/.hgrc 
  ln -s ~/dotfiles/hgconfig/hgignore  ~/.hgignore 
- ln -s ~/dotfiles/pythonstartup/.pythonstartup ~/.pythonstartup
+ ln -s ~/dotfiles/pythonstartup ~/.pythonstartup
  ln -s ~/dotfiles/offlineimaprc ~/.offlineimaprc
  ln -s ~/dotfiles/bash/.bash_aliases ~/.bash_aliases
  ln -s ~/dotfiles/jshintrc ~/.jshintrc
