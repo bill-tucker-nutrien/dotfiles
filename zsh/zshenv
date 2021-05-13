@@ -1,0 +1,17 @@
+# python
+export PYTHONSTARTUP=~/.pythonstartup
+export PACKAGECLOUD_MASTER_TOKEN=
+
+
+# agrible schema locations
+export AS_DIR=~/PycharmProjects/agrible-schema
+source ~/PycharmProjects/agrible-schema/as-docker.sh
+
+# agrible mfr locations
+export MFR_DIR=~/PycharmProjects/morningfarmreport
+export PDAPI_DIR=~/PycharmProjects/product-data-api
+# This should be using MFG_DIR
+source ~/PycharmProjects/morningfarmreport/mfr-docker.sh
+
+# source local env variables 
+source ~/.zshenv.local

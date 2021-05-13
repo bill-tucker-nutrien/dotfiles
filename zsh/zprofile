@@ -1,16 +1,8 @@
 # aliases
-alias ll="ls -lah"
-alias vim=nvim
-alias retmux="tmux attach-session -t $1"
+alias vim=nvim                                  # let's use nvim
+alias ll="ls -lahG"                              # list all file, human-readable sizes, with colors
+alias retmux="tmux attach-session -t $1"        # `tmux a ` is just not enough
+alias cp="cp -i"                                # Confirm before overwriting something
+alias df='df -h'                                # Human-readable sizes
 
-# agrible schema locations
-export AS_DIR=/Users/bi01043261/PycharmProjects/agrible-schema
-source ~/PycharmProjects/agrible-schema/as-docker.sh
-
-# agrible mfr locations
-export MFR_DIR=/Users/bi01043261/PycharmProjects/morningfarmreport
-export PDAPI_DIR=/Users/bi01043261/PycharmProjects/product-data-api
-export PACKAGECLOUD_MASTER_TOKEN= 
-# This should be using MFG_DIR
-source ~/PycharmProjects/morningfarmreport/mfr-docker.sh
 
