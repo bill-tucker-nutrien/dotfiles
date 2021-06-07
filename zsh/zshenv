@@ -11,7 +11,11 @@ source ~/PycharmProjects/agrible-schema/as-docker.sh
 export MFR_DIR=~/PycharmProjects/morningfarmreport
 export PDAPI_DIR=~/PycharmProjects/product-data-api
 # This should be using MFG_DIR
-source ~/PycharmProjects/morningfarmreport/mfr-docker.sh
+
+# source project related directories
+source $AS_DIR/as-docker.sh
+source $MFR_DIR/mfr-docker.sh
+source $PDAPI_DIR/pd-docker.sh
 
 # source local env variables 
 source ~/.zshenv.local

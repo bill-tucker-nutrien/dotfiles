@@ -13,7 +13,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-commentary'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
 Plug 'ncm2/float-preview.nvim'
 "
 "it's been annoying to have pairs of things, so commenting this out for now.
@@ -45,6 +47,7 @@ Plug 'davidhalter/jedi'
 "colorschemes
 " Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 
 
 call plug#end()
@@ -62,7 +65,11 @@ let g:float_preview#max_height = 40
 
 let g:coc_global_extensions = ['coc-conjure']
 let g:ale_linters = {
-      \ 'clojure': ['clj-kondo', 'joker']
+      \ 'clojure': ['clj-kondo', 'joker'],
+      \ 'python': ['flake8', 'pylint', 'bandit']
+      \}
+let g:ale_fixers = {
+      \ 'python': ['yapf']
       \}
 let g:python3_host_prog = '/usr/bin/python3'
 
@@ -145,6 +152,8 @@ let g:netrw_preview=1
 " set mouse=a
 set background=light
 " set background=dark
+"
+colorscheme gruvbox
 " autocmd vimenter * ++nested colorscheme solarized8
 "
 ""For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >

@@ -4,5 +4,7 @@ alias ll="ls -lahG"                              # list all file, human-readable
 alias retmux="tmux attach-session -t $1"        # `tmux a ` is just not enough
 alias cp="cp -i"                                # Confirm before overwriting something
 alias df='df -h'                                # Human-readable sizes
+alias pyv='source venv/bin/activate'            # source virtualenv from root of project
+alias mkvenv="python3 -m venv venv --prompt=$1" # create virtualenv with directory venv
 
 
