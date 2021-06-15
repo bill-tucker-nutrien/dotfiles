@@ -7,4 +7,22 @@ alias df='df -h'                                # Human-readable sizes
 alias pyv='source venv/bin/activate'            # source virtualenv from root of project
 alias mkvenv="python3 -m venv venv --prompt=$1" # create virtualenv with directory venv
 
+# save history between sessions
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+SAVEHIST=10000
+HISTSIZE=5000
+# share history across multiple zsh sessions
+setopt SHARE_HISTORY
+# append to history
+setopt APPEND_HISTORY
+
+# expire duplicates first
+setopt HIST_EXPIRE_DUPS_FIRST 
+# do not store duplications
+setopt HIST_IGNORE_DUPS
+#ignore duplicates when searching
+setopt HIST_FIND_NO_DUPS
+# removes blank lines from history
+setopt HIST_REDUCE_BLANKS
+
 
