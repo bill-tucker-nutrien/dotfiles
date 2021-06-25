@@ -21,3 +21,6 @@ export NVM_DIR="$HOME/.nvm"
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2021-06-23 19:35:17
+export PATH="$PATH:/Users/bi01043261/.local/bin"

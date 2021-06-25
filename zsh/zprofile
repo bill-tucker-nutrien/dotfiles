@@ -26,3 +26,6 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
 
+
+# Created by `pipx` on 2021-06-23 19:35:17
+export PATH="$PATH:/Users/bi01043261/.local/bin"

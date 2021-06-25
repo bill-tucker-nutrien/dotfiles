@@ -1,13 +1,11 @@
 [user]
     name = Bill Tucker
-    email = bill.h.tucker@gmail.com
+    email = bill.tucker@nutrien.com
 [color]
     status = auto
 [core]
-    excludesfile = /home/bbtucker/.gitignore
-    safecrlf = true
-	autocrlf = false
-    editor = vim
+    excludesfile = ~/.gitignore
+    editor = nvim
 [alias]
     co = checkout
     ci = commit
@@ -21,3 +19,7 @@
     default = simple
 [credential]
 	helper = store
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
